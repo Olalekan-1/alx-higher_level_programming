@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Set the commit message
+commit_message="$1"
+
+# Execute git add command
+git add .
+
+# Execute git commit command
+git commit -m "$commit_message"
+
+# Execute git push command
+git push
+
