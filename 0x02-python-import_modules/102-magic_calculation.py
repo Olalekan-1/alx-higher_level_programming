@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+
 def magic_calculation_102(a, b):
-    add, sub = magic_calculation_102.add, magic_calculation_102.sub
+    from magic_calculation_102 import add, sub
 
     if a < b:
         c = add(a, b)
