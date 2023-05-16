@@ -9,19 +9,19 @@
  */
 size_t print_listint(const listint_t *h)
 {
-    const listint_t *current;
-    unsigned int n; /* number of nodes */
+	const listint_t *current;
+	unsigned int n; /* number of nodes */
 
-    current = h;
-    n = 0;
-    while (current != NULL)
-    {
-        printf("%i\n", current->n);
-        current = current->next;
-        n++;
-    }
+	current = h;
+	n = 0;
+	while (current != NULL)
+	{
+		printf("%i\n", current->n);
+		current = current->next;
+		n++;
+	}
 
-    return (n);
+	return (n);
 }
 
 /**
@@ -74,36 +74,4 @@ void free_listint(listint_t *head)
 }
 
 
-
-
-
-
-
-
-
-
-/**
- * reverse_listint - Function to reverse the link
- * @head: pointer to the headnode
- * Return: reversed node;
- */
-
-listint_t *reverse_listint(listint_t **head)
-{	listint_t *nextnode = NULL;
-	listint_t *previousnode = NULL;
-
-	if (*head == NULL)
-	{
-		return (*head);
-	}
-	while (*head != NULL)
-	{
-		nextnode = (*head)->next;
-		(*head)->next = previousnode;
-		previousnode = *head;
-		*head = nextnode;
-	}
-	*head = previousnode;
-	return (*head);
-}
 
