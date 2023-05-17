@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 import string
-print(getattr(string, 'ascii_uppercase'))
+d = string.ascii_uppercase
+print(d)
