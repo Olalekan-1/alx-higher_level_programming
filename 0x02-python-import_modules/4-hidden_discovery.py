@@ -1,13 +1,10 @@
-import dis
-def print_names(module):
-    code = module.__code__
-    names = []
-    for i in code.co_consts:
-        if isinstance(i, str) and not i.startswith('__'):
-            names.append(c)
-    names.sort()
-    for name in names:
-        print(name)
+#!/usr/bin/python3
 
-module = __import__('hidden_4')
-print_names(module)
+import  hidden_4
+def print_names():
+    for i in sorted(dir(hidden_4)):
+        if not (i[0] == '_' and i[1] == '_'):
+            print(i)
+
+if __name__ == "__main__":
+    main()
