@@ -10,13 +10,12 @@ class Square:
         """ An instance of Square created with size atrribute
         Args:
             size (int): size of the square
+        Raises:
+            ValueError: If the size is less than 0.
+            TypeError: If the size is not an integer.
         """
-        try:
-            self.__size = size
-            if size < 0:
-                raise ValueError
-        except ValueError:
-            print("size must be >= 0")
-        except TypeError:
-            print("size must be an integer")
-
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = size
