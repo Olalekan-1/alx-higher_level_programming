@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
+""" A square class with a private instance attribute """
 
 class Square:
     """ A square class with a private instance attribute """
