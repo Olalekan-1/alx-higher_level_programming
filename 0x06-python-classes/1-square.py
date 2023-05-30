@@ -11,3 +11,11 @@ class Square:
             The size of the square
         """
         self._size = size
+
+    def area(self):
+        """ Define and return the area of the square """
+        return self._size ** 2
+
+    def perimeter(self):
+        """ Define and return the perimeter of the square """
+        return 4 * self._size
