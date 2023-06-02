@@ -1,0 +1,9 @@
+This '0-add_integer.txt' file is for testing the 'add_integer()' with different test cases
+
+    >>> add_integer = __import__('../0-add_integer').add_integer
+    Test case with int type for both argument:
+    >>> add_integer(7, 5)
+    12
+    Test case with either type as float:
+    >>> add_integer(2.0, 9)
+    11
