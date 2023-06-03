@@ -1,9 +1,52 @@
-This '0-add_integer.txt' file is for testing the 'add_integer()' with different test cases
+# 0-add_integer.txt
 
-    >>> add_integer = __import__('../0-add_integer').add_integer
-    Test case with int type for both argument:
-    >>> add_integer(7, 5)
-    12
-    Test case with either type as float:
-    >>> add_integer(2.0, 9)
-    11
+============================
+How To use 0-add_integer.py
+============================
+
+This Module defines an integer functions ``add_integer(a, b=98)``.
+
+``add_integer()`` returns the addition of two numbers.
+..
+..
+
+        >>> add_integer = __import__('0-add_integer').add_integer
+        >>> add_integer(7, 5)
+        12
+
+        >>> add_integer(2, -9)
+        -7
+
+..
+..
+
+Test case with either of the argument as float
+        >>> add_integer(2.0, 9)
+        11
+
+..
+..
+
+Test case with string pass as argument
+        >>> add_integer('2', 7)
+        Traceback (most recent call last):
+        TypeError: a must be an integer
+
+        >>> add_integer(7, '5')
+        Traceback (most recent call last):
+        TypeError: b must be an integer
+
+Test case with a single int argument passed
+..
+..
+
+    >>> add_integer(2)
+    100
+
+
+
+
+
+
+
+
