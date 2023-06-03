@@ -1,0 +1,98 @@
+ # 2-matrix_divided.txt
+
+ =========================
+ Using 2-matrix_divided.py
+ =========================
+
+ This file defines how to use the ``matrix_divided(matrix, div)`` with various test cases
+
+ ``matrix_divided(matrix, div)`` divides all element of a matrix(list of lists) by a divisor (div)
+
+ ..
+ ..
+ Test case with matrix of length 2 and divisor of integer:
+        >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+        >>> a = [
+        ... [1, 2, 3],
+        ... [4, 5, 6]
+        ... ]
+        >>> print(matrix_divided(a, 3))
+        [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+        >>> print(a)
+        [[1, 2, 3], [4, 5, 6]]
+
+..
+..
+Test case with unequal row of lists:
+        >>> b = [
+        ... [1, 2, 3],
+        ... [4, 5, 6, 7]
+        ... ]
+        >>> print(matrix_divided(b, 3))
+        Traceback (most recent call last):
+        TypeError: Each row of the matrix must have the same size
+
+
+..
+..
+
+Test case with divsor(div) type not int nor float:
+
+        >>> print(matrix_divided(a, '3'))
+        Traceback (most recent call last):
+        TypeError: div must be a number
+
+        >>> print(matrix_divided(a, [3, 4]))
+        Traceback (most recent call last):
+        TypeError: div must be a number
+
+
+Test case with divisor == 0:
+
+        >>> print(matrix_divided(a, 0))
+        Traceback (most recent call last):
+        ZeroDivisionError: division by zero
+
+..
+..
+Test case with matrix not a list of lists:
+
+        >>> c = [1, 2, 3]
+        >>> print(matrix_divided(c, 3))
+        Traceback (most recent call last):
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test case with type(element) not int nor float:
+
+        >>> d = [
+        ... [1, 2, '3'],
+        ... [4, 5, 6]
+        ... ]
+        >>> print(matrix_divided(d, 3))
+        Traceback (most recent call last):
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
