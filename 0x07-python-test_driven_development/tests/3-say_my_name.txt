@@ -1,0 +1,28 @@
+# 3-say_my_name.txt
+
+=====================
+Using say_my_name()
+=====================
+
+
+This file defines how to use ``say_my_name(first_name, last_name)`` with various cases
+
+``say_my_name(first_name, last_name)`` prints the first and last name passed as arguments with the clause `My name is first_name last_name`
+
+..
+..
+Test case with first and last name passed as string type:
+
+        >>> say_my_name = __import__('3-say_my_name').say_my_name
+        >>> say_my_name("John", "Smith")
+        My name is John Smith
+        >>> say_my_name("Walter", "White")
+        My name is Walter White
+
+
+..
+..
+Test case with only one argument passed:
+
+        >>> say_my_name("Bob")
+        My name is Bob 
