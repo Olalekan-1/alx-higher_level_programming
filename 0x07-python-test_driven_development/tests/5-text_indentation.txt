@@ -1,0 +1,11 @@
+# 5-text_indentation.txt
+
+
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("i am Olalekan: Olalekan, do you really know me? me.")
+    i am Olalekan:
+    <BLANKLINE>
+    Olalekan, do you really know me?
+    <BLANKLINE>
+    me.
