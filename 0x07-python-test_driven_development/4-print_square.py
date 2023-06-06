@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
-""" This module contains a function print_square()
+""" This module contains a function print_square().
+for example,
+>>> print_square(4)
+####
+####
+####
+####
 """
 
 

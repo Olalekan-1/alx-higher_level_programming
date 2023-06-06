@@ -1,0 +1,20 @@
+# 4-print_square.txt
+
+=====================
+Using print_square()
+=====================
+
+
+This file defines the usage of print_square(size)`` with various test cases
+
+``print_square(size)`` prints with '#'; Size of the suare is passed argument
+
+..
+..
+Test case with with integer passed as argument
+        >>> print_square = __import__('4-print_square').print_square
+        >>> print_square(4)
+        ####
+        ####
+        ####
+        ####
