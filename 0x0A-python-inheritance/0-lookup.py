@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-"""
- This module contains a function only
+""" This module contains a function. lookup()
 """
 
+
 def lookup(obj):
-    """ This function prints the list of all attributes
-    and methods associated with a object
+    """ This function return the arrtibute attributes and
+    method of an object
     """
-    print(dir(obj))
+    return dir(obj)
