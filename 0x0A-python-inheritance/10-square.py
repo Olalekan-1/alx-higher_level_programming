@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This module contain two Classes definition
+This module contains clases definition
 """
 
 
@@ -42,3 +42,32 @@ class Rectangle(BaseGeometry):
 
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """ area of the rectangle
+        Returns:
+            The area of the rectangle
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """ String reprsentation of Rectangle
+        Returns:
+            The string representation
+        """
+        r = "[{}] {:d}/{:d}".format(self.__class__.__name__,
+                                    self.__width, self.__height)
+        return r
+
+
+class Square(Rectangle):
+    """ A square class"""
+    def __init__(self, size):
+        """ An instance of Square created
+        Args:
+            size (int): size of square"""
+
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+
+        self.__size = size
