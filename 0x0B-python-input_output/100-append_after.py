@@ -10,6 +10,7 @@ def append_after(filename="", search_string="", new_string=""):
         line = file.readlines()
         file.seek(0)
         for lin in line:
-            file.write(l)
+            file.write(lin)
             if search_string in lin:
                 file.write(new_string)
+        file.truncate()
