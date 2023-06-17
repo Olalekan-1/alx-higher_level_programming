@@ -45,5 +45,39 @@ class Base:
 
         json_data = cls.to_json_string(new)
 
-        with open(filename, 'w') as file:
+        with open(filename, 'w', encoding='utf-8') as file:
             file.write(json_data)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ return the set attribute
+        of class instance
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)
+        else:
+            raise ValueError("Invalid class type")
+
+        dummy_instance.update(**dictionary)
+        return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """ laod from json file and return the list
+        of all insatance with their attribute
+        """
+        filename = cls.__name__ + ".json"
+        new = []
+        try:
+            with open(filename, 'r', encoding='utf-8') as file:
+                read = file.read()
+        except FileNotFoundError:
+            return new
+        my_list = cls.from_json_string(read)
+        for item in my_list:
+            dict_rep = cls.create(**item)
+            new.append(dict_rep)
+
+        return new
