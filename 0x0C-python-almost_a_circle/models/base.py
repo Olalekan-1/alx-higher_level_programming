@@ -4,6 +4,7 @@
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -127,3 +128,52 @@ class Base:
         except FileNotFoundError:
             pass
         return new
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ create a turtle object"""
+        my_turtle = turtle.Turtle()
+
+        my_turtle.speed(1)
+
+        # Set up the turtle window
+        window = turtle.Screen()
+        window.bgcolor("white")
+
+        # Draw rectangles
+        for rectangle in list_rectangles:
+            x = rectangle.x
+            y = rectangle.y
+            width = rectangle.width
+            height = rectangle.height
+
+            # Move to the starting position of the rectangle
+            my_turtle.penup()
+            my_turtle.goto(x, y)
+            my_turtle.pendown()
+
+            # Draw the rectangle
+            for _ in range(2):
+                my_turtle.forward(width)
+                my_turtle.right(90)
+                my_turtle.forward(height)
+                my_turtle.right(90)
+
+        # Draw squares
+        for square in list_squares:
+            x = square.x
+            y = square.y
+            size = square.size
+
+            # Move to the starting position of the square
+            my_turtle.penup()
+            my_turtle.goto(x, y)
+            my_turtle.pendown()
+
+            # Draw the square
+            for _ in range(4):
+                my_turtle.forward(size)
+                my_turtle.right(90)
+
+        # Keep the window open until it is closed manually
+        turtle.done()
