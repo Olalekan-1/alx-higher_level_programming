@@ -3,6 +3,7 @@
 """ This module contains aBase class
 """
 import json
+import csv
 
 
 class Base:
@@ -80,4 +81,49 @@ class Base:
             dict_rep = cls.create(**item)
             new.append(dict_rep)
 
+        return new
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save a python file into csv file"""
+
+        if cls.__name__ == "Rectangle":
+            fieldname = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            fieldname = ["id", "size", "x", "y"]
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", encoding="utf-8") as file:
+            csv_writer = csv.DictWriter(file, fieldnames=fieldname)
+            csv_writer.writeheader()
+            for item in list_objs:
+                rep = item.to_dictionary()
+                csv_writer.writerow(rep)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load and instantiate from csv file"""
+
+        filename = cls.__name__ + ".csv"
+        new = []
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+
+                        row["id"] = int(row["id"])
+                        row["width"] = int(row["width"])
+                        row["height"] = int(row["height"])
+                        row["x"] = int(row["x"])
+                        row["y"] = int(row["y"])
+                    elif cls.__name__ == "Square":
+                        row["id"] = int(row["id"])
+                        row["size"] = int(row["size"])
+                        row["x"] = int(row["x"])
+                        row["y"] = int(row["y"])
+                    obj = cls.create(**row)
+                    new.append(obj)
+        except FileNotFoundError:
+            pass
         return new
