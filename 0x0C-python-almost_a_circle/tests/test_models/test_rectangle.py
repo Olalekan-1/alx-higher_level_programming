@@ -22,15 +22,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.width, 7)
 
         with self.assertRaises(TypeError):
-            self.r2.width = "89"
+            r = Rectangle("89", 9)
         with self.assertRaises(ValueError):
-            self.r3.width = 0
+            r = Rectangle(0, 7)
+        with self.assertRaises(ValueError):
+            r =Rectangle(-2, 7)
 
     def test_height(self):
         """ test the value of height"""
         self.assertEqual(self.r1.height, 2)
         self.r1.height = 90
         self.assertEqual(self.r1.height, 90)
+        with self.assertRaises(TypeError):
+            r = Rectangle(89, "9")
+        with self.assertRaises(ValueError):
+            r = Rectangle(7, 0)
+        with self.assertRaises(ValueError):
+            r =Rectangle(7, -7)
 
     def test_x(self):
         """ test the value of x"""
@@ -44,8 +52,17 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             self.r2.x = -1
+        with self.assertRaises(TypeError):
+            r = Rectangle(89, 9, "4")
+        with self.assertRaises(ValueError):
+            r = Rectangle(89, 9, -5)
+
 
     def test_y(self):
         """ Test The value of y"""
         self.assertEqual(self.r1.y, 0)
         self.assertEqual(self.r3.y, 1)
+        with self.assertRaises(TypeError):
+             r = Rectangle(89, 9, 9, "2")
+        with self.assertRaises(ValueError):
+             r = Rectangle(89, 9, 9, -9,)
