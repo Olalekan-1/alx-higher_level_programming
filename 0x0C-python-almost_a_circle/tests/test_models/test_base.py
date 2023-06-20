@@ -38,6 +38,8 @@ class Testbase(unittest.TestCase):
     def test_from_json_string(self):
         """ Test the from_json_string():"""
         self.assertEqual(self.poly1.from_json_string(None), [])
+        self.assertEqual(self.poly2.from_json_string("[]"), [])
+        self.assertEqual(self.poly3.from_json_string('[{"id": 12}]'), [{'id': 12}])
 
 
 if __name__ == '__main__':
