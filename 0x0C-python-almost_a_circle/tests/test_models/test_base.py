@@ -32,7 +32,8 @@ class Testbase(unittest.TestCase):
         """ Test the to_json_string()."""
         self.assertEqual(self.poly1.to_json_string(None), '[]')
         self.assertEqual(self.poly2.to_json_string([]), '[]')
-        self.assertEqual(self.poly3.to_json_string([{'id': 12}]), '[{"id": 12}]')
+        self.assertEqual(self.poly3.to_json_string([{'id': 12}]),
+                         '[{"id": 12}]')
 
     def test_from_json_string(self):
         """ Test the from_json_string():"""
