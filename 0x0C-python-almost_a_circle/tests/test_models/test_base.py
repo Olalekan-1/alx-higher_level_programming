@@ -26,3 +26,7 @@ class Testbase(unittest.TestCase):
         self.assertEqual(self.poly2.id, 2)
         self.assertEqual(self.poly3.id, 3)
         self.assertEqual(self.poly4.id, 4)
+
+
+if __name__ == '__main__':
+    unittest.main()
