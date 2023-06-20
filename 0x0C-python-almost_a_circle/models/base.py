@@ -41,8 +41,6 @@ class Base:
         """ save json strings to json file"""
         new = []
         filename = cls.__name__ + ".json"
-        if list_objs is None or list_objs == []:
-            json_data = '[]'
 
         for item in list_objs:
             rep = item.to_dictionary()
@@ -51,7 +49,10 @@ class Base:
         json_data = cls.to_json_string(new)
 
         with open(filename, 'w', encoding='utf-8') as file:
-            file.write(json_data)
+            if list_objs is None:
+                file.write("[]")
+            else:
+                file.write(json_data)
 
     @classmethod
     def create(cls, **dictionary):
