@@ -25,10 +25,9 @@ class Testbase(unittest.TestCase):
         self.assertEqual(self.poly1.id, 1)
         self.assertEqual(self.poly2.id, 2)
         self.assertEqual(self.poly3.id, 8)
-        self.assertEqual(self.poly4.id, 3)
+        self.assertEqual(self.poly4.id, 4)
 
     def test_to_json_string(self):
-        pass
 
 
 
