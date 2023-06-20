@@ -28,8 +28,10 @@ class Testbase(unittest.TestCase):
         self.assertEqual(self.poly4.id, 3)
 
     def test_to_json_string(self):
-        pass
-
+        """ Test the to_json_string()."""
+        self.assertEqual(self.poly1.to_json_string(None), [])
+        self.assertEqual(self.poly2.to_json_string([]), [])
+        self.assertEqual(self.poly3.to_json_string([{'id': 12}]), '[{"id": 12}]')
 
 
 if __name__ == '__main__':
