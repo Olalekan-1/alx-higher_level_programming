@@ -57,7 +57,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(89, 9, -5)
 
-
     def test_y(self):
         """ Test The value of y"""
         self.assertEqual(self.r1.y, 0)
@@ -66,3 +65,20 @@ class TestRectangle(unittest.TestCase):
              r = Rectangle(89, 9, 9, "2")
         with self.assertRaises(ValueError):
              r = Rectangle(89, 9, 9, -9,)
+
+    def test_area(self):
+        """
+        test area
+        """
+        self.assertEqual(self.r2.area(), 12)
+        self.assertTrue(hasattr(self.r3, "area"))
+
+    def test___str__(self):
+        """ string representstion
+        """
+        self.assertTrue(hasattr(self.r3, "__str__"))
+        r = "[{}] ({}) {:d}/{:d} - {:d}/{:d}".format(self.r3.__class__.__name__,
+                                                     self.r3.id, self.r3.x,
+                                                     self.r3.y, self.r3.width,
+                                                     self.r3.height)
+        self.assertEqual(str(self.r3), r)
