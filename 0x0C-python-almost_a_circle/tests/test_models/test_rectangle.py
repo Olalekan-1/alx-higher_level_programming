@@ -3,6 +3,9 @@
 
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+import sys
+from unittest.mock import patch
 
 
 class TestRectangle(unittest.TestCase):
@@ -82,3 +85,31 @@ class TestRectangle(unittest.TestCase):
                                                      self.r3.y, self.r3.width,
                                                      self.r3.height)
         self.assertEqual(str(self.r3), r)
+
+    def test_display(self):
+        """ Test display"""
+        rec = "###\n###\n###\n###\n"
+        buffer = StringIO()
+        with patch("sys.stdout", buffer):
+            self.r2.display()
+        actual_value = buffer.getvalue()
+        self.assertEqual(actual_value, rec)
+
+        """r = Rectangle(4, 2, 2)
+        rt = "  ####\n  ####\n"
+        fake = StringIO
+        with patch("sys.stdout", fake):
+            r.display()
+        real = fake.getvalue()
+        self.assertEqual(real, rt)
+        """
+
+        rect = Rectangle(3, 2, 2, 2)
+        rep = "\n\n  ###\n  ###\n"
+        temp = StringIO()
+        with patch("sys.stdout", temp):
+            rect.display()
+        value = temp.getvalue()
+        self.assertEqual(value, rep)
+
+
