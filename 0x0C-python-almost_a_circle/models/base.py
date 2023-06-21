@@ -42,17 +42,17 @@ class Base:
         new = []
         filename = cls.__name__ + ".json"
 
-        for item in list_objs:
-            rep = item.to_dictionary()
-            new.append(rep)
+        if not list_objs or list_objs == None:
+            new = new
+        else:
+            for item in list_objs:
+                rep = item.to_dictionary()
+                new.append(rep)
 
         json_data = cls.to_json_string(new)
 
         with open(filename, 'w', encoding='utf-8') as file:
-            if list_objs is None:
-                file.write("[]")
-            else:
-                file.write(json_data)
+            file.write(json_data)
 
     @classmethod
     def create(cls, **dictionary):

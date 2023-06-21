@@ -6,6 +6,7 @@ from models.rectangle import Rectangle
 from io import StringIO
 import sys
 from unittest.mock import patch
+import json
 
 
 class TestRectangle(unittest.TestCase):
@@ -144,3 +145,14 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.width, self.r4.width)
         self.assertEqual(rect.y, 0)
         self.assertEqual(rect.x, 7)
+
+    def test_save_to_file(self):
+        """ test the save to file()"""
+        filename = self.r1.__class__.__name__ + ".json"
+        data = json.dumps([])
+
+        self.r1.save_to_file(None)
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(data, saved_data)
