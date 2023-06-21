@@ -112,4 +112,25 @@ class TestRectangle(unittest.TestCase):
         value = temp.getvalue()
         self.assertEqual(value, rep)
 
+    def test_to_dictionary(self):
+        """ test the to_dictionary()"""
+        r = self.r4.to_dictionary()
+        self.assertEqual(self.r4.to_dictionary(), r)
+        self.assertTrue(hasattr(self.r3, "to_dictionary"))
 
+    def test_update(self):
+        """ test the update()"""
+        self.assertTrue(hasattr(self.r4, "update"))
+        self.r4.update(89, 1, 2, 3, 4)
+        self.assertEqual(self.r4.id, 89)
+        self.assertEqual(self.r4.width, 1)
+        self.assertEqual(self.r4.height, 2)
+        self.assertEqual(self.r4.x, 3)
+        self.assertEqual(self.r4.y, 4)
+        r = self.r4.to_dictionary()
+        self.r1.update(**r)
+        self.assertEqual(self.r1.id, 89)
+        self.assertEqual(self.r1.width, 1)
+        self.assertEqual(self.r1.height, 2)
+        self.assertEqual(self.r1.x, 3)
+        self.assertEqual(self.r1.y, 4)
