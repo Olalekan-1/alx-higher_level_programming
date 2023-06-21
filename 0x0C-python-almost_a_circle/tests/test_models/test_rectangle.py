@@ -134,3 +134,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.height, 2)
         self.assertEqual(self.r1.x, 3)
         self.assertEqual(self.r1.y, 4)
+
+    def test_create(self):
+        """ Test the create()"""
+        r = self.r4.to_dictionary()
+        rect = self.r4.create(**r)
+        self.assertEqual(rect.id, self.r4.id)
+        self.assertEqual(rect.height, 6)
+        self.assertEqual(rect.width, self.r4.width)
+        self.assertEqual(rect.y, 0)
+        self.assertEqual(rect.x, 7)
