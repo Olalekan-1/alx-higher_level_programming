@@ -30,7 +30,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(0, 7)
         with self.assertRaises(ValueError):
-            r =Rectangle(-2, 7)
+            r = Rectangle(-2, 7)
 
     def test_height(self):
         """ test the value of height"""
@@ -42,7 +42,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(7, 0)
         with self.assertRaises(ValueError):
-            r =Rectangle(7, -7)
+            r = Rectangle(7, -7)
 
     def test_x(self):
         """ test the value of x"""
@@ -66,9 +66,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.y, 0)
         self.assertEqual(self.r3.y, 1)
         with self.assertRaises(TypeError):
-             r = Rectangle(89, 9, 9, "2")
+            r = Rectangle(89, 9, 9, "2")
         with self.assertRaises(ValueError):
-             r = Rectangle(89, 9, 9, -9,)
+            r = Rectangle(89, 9, 9, -9,)
 
     def test_area(self):
         """
@@ -156,3 +156,18 @@ class TestRectangle(unittest.TestCase):
             saved_data = file.read()
 
         self.assertEqual(data, saved_data)
+
+        self.r2.save_to_file([])
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(data, saved_data)
+
+        rep = [self.r1.to_dictionary()]
+        json_data = json.dumps(rep)
+
+        self.r1.save_to_file([self.r1])
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(json_data, saved_data)
