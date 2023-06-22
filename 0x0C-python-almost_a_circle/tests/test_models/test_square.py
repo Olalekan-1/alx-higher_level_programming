@@ -58,3 +58,34 @@ class TestSquare(unittest.TestCase):
             r = Square(89, 9, "2")
         with self.assertRaises(ValueError):
             r = Square(89, 9, -9,)
+
+    def test___str__(self):
+        """ string representstion
+        """
+        self.assertTrue(hasattr(self.s3, "__str__"))
+        r = "[{}] ({}) {:d}/{:d} - {:d}".format(self.s3.__class__.__name__,
+                                                     self.s3.id, self.s3.x,
+                                                     self.s3.y, self.s3.size)
+        self.assertEqual(str(self.s3), r)
+
+    def test_to_dictionary(self):
+        """ test the to_dictionary()"""
+        r = self.s4.to_dictionary()
+        self.assertEqual(self.s4.to_dictionary(), r)
+        self.assertTrue(hasattr(self.s3, "to_dictionary"))
+
+    def test_update(self):
+        """ test the update()"""
+        self.assertTrue(hasattr(self.s4, "update"))
+        self.s4.update(89, 1, 3, 4)
+        self.assertEqual(self.s4.id, 89)
+        self.assertEqual(self.s4.size, 1)
+        self.assertEqual(self.s4.x, 3)
+        self.assertEqual(self.s4.y, 4)
+        r = self.s4.to_dictionary()
+        self.s1.update(**r)
+        self.assertEqual(self.s1.id, 89)
+        self.assertEqual(self.s1.width, 1)
+        self.assertEqual(self.s1.x, 3)
+        self.assertEqual(self.s1.y, 4)
+
