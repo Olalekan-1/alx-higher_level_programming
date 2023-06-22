@@ -64,8 +64,8 @@ class TestSquare(unittest.TestCase):
         """
         self.assertTrue(hasattr(self.s3, "__str__"))
         r = "[{}] ({}) {:d}/{:d} - {:d}".format(self.s3.__class__.__name__,
-                                                     self.s3.id, self.s3.x,
-                                                     self.s3.y, self.s3.size)
+                                                self.s3.id, self.s3.x,
+                                                self.s3.y, self.s3.size)
         self.assertEqual(str(self.s3), r)
 
     def test_to_dictionary(self):
@@ -89,3 +89,43 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s1.x, 3)
         self.assertEqual(self.s1.y, 4)
 
+    def test_create(self):
+        """ Test the create()"""
+        r = self.s4.to_dictionary()
+        rect = self.s4.create(**r)
+        self.assertEqual(rect.id, self.s4.id)
+        self.assertEqual(rect.width, self.s4.size)
+        self.assertEqual(rect.y, 4)
+        self.assertEqual(rect.x, 2)
+
+    def test_save_to_file(self):
+        """ test the save to file()"""
+        filename = self.s1.__class__.__name__ + ".json"
+        data = json.dumps([])
+
+        self.s1.save_to_file(None)
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(data, saved_data)
+
+        self.s2.save_to_file([])
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(data, saved_data)
+
+        rep = [self.s1.to_dictionary()]
+        json_data = json.dumps(rep)
+
+        self.s1.save_to_file([self.s1])
+        with open(filename, "r", encoding="utf-8") as file:
+            saved_data = file.read()
+
+        self.assertEqual(json_data, saved_data)
+
+    def test_load_from_file(self):
+        """ Test load_from_file()"""
+        filename = self.s1.__class__.__name__ + ".json"
+        if not filename:
+            self.assertEqual(self.s1.load_from_file(), list())
