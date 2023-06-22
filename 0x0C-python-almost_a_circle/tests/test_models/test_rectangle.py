@@ -171,3 +171,9 @@ class TestRectangle(unittest.TestCase):
             saved_data = file.read()
 
         self.assertEqual(json_data, saved_data)
+
+    def test_load_from_file(self):
+        """ Test load_from_file()"""
+        filename = self.r1.__class__.__name__ + ".json"
+        if not filename:
+            self.assertEqual(self.r1.load_from_file(), list())

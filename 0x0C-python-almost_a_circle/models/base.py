@@ -42,7 +42,7 @@ class Base:
         new = []
         filename = cls.__name__ + ".json"
 
-        if not list_objs or list_objs == None:
+        if not list_objs or list_objs is None or list_objs == []:
             new = new
         else:
             for item in list_objs:
