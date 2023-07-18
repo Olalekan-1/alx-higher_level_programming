@@ -1,3 +1,3 @@
 -- list all rows in th table
 
-select * from first_table;
+SELECT * FROM first_table;
