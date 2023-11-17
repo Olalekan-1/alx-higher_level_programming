@@ -21,7 +21,8 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name = '{}'".format(argv[4]))
+    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
+                   states.id ASC".format(argv[4]))
 
     rows = cursor.fetchall()
 
