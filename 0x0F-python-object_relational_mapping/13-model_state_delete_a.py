@@ -17,9 +17,10 @@ if __name__ == "__main__":
     session_maker = sessionmaker(bind=engine)
     session = session_maker()
 
-    state = session.query(State).filter(State.name.like('%A%')).order_by(
+    state = session.query(State).filter(State.name.like('%a%')).order_by(
         State.id)
 
     for s in state:
         session.delete(s)
-        session.commit()
+
+    session.commit()
