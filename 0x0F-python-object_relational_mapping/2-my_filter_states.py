@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
                    states.id ASC".format(argv[4]))
 
     rows = cursor.fetchall()
