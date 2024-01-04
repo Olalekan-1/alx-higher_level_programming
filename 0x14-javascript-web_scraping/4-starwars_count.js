@@ -15,10 +15,11 @@ function displayCharacterOccurrence () {
       for (let i = 0; i < elem.length; i++) {
         if (elem[i].characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) { count += 1; }
       }
-
       console.log(count);
     }
   });
 }
 
-displayCharacterOccurrence();
+if (process.argv.length === 3) {
+  displayCharacterOccurrence();
+}
